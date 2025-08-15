@@ -1,152 +1,330 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="ta">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>OpenSetu ஹீரோ</title>
+  <title>OpenSetu</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <style>
+    /* Menu bar styling */
+    .top-menu {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      background: #f8f9fa;
+      padding: 12px 40px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .top-menu a {
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .top-menu a:hover {
+      color: #007BFF;
+    }
+
+    /* Hamburger button */
+    .menu-toggle {
+      display: none;
+      font-size: 1.5em;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #333;
+    }
+
+    /* Side menu */
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #f8f9fa;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 2000;
+    }
+    .side-menu a {
+      display: block;
+      padding: 10px 20px;
+      color: #333;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+    }
+    .side-menu a:hover {
+      color: #007BFF;
+    }
+    .side-menu .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 2em;
+      text-decoration: none;
+      color: #333;
+    }
+
+    /* Responsive rules */
+    @media (max-width: 768px) {
+      .top-menu a {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+      }
+    }
+  </style>
 </head>
 <body class="page">
+
+  <!-- Top Menu -->
+<nav class="top-menu">
+  <a href="index.html">முகப்பு</a>
+  <a href="about.html">எங்களை பற்றி</a>
+  <a href="beta.html">சட்டபூர்வம்</a>
+  <a href="documentation.html">ஆவணங்கள்</a>
+  <a href="domain.html">டொமைன் பட்டியல்</a>
+  <button class="menu-toggle" onclick="openMenu()"><i class="fas fa-bars"></i></button>
+</nav>
+
+<!-- Side Menu -->
+<div id="sideMenu" class="side-menu">
+  <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
+  <a href="index.html">முகப்பு</a>
+  <a href="about.html">எங்களை பற்றி</a>
+  <a href="beta.html">சட்டபூர்வம்</a>
+  <a href="documentation.html">ஆவணங்கள்</a>
+  <a href="domain.html">டொமைன் பட்டியல்</a>
+</div>
+
 
   <div class="tilted-bg"></div>
 
   <section class="hero">
     <div class="hero-text">
-      <h1 class="hero-title">1.4 பில்லியன் குரல்கள்,<br>
-        22 மொழிகள்,<br>
-        ஒரு இணையம்<br>
-        &amp; நீங்கள்
+      <h1 class="hero-title">150 கோடி குரல்கள்,<br>
+        23 மொழிகள்,<br>
+        ஒன்றிணைந்த இணையத்தில்.
       </h1>
       <p class="hero-lead">
-        OpenSetu உங்கள் தாய்மொழியில் இணையத்தை அணுக அனுமதிக்கிறது. எந்த செயலியும் தேவையில்லை.
-        உங்கள் உலாவி அமைப்புகளை மாற்றி, பூரிப்புடன் செயல்படுங்கள், வலை உங்கள் மொழியைப் பேசுகிறது.
-        <br><br> இது வலையின் மொழி சார்ந்த பதிப்புகளுடன் உங்களை இணைக்கும் உள்கட்டமைப்பு ஆகும்.
-        பயன்பாட்டை தொடங்குங்கள்: pranam.opensetu.in
-      </p>
-      <button class="btn-primary">இது எப்படி வேலை செய்கிறது →</button>
-    </div>
+  ஓபன் செது உங்கள் தாய்மொழியில் இணையத்தை அணுக அனுமதிக்கிறது. எந்த ஆப் தேவையும் இல்லை.
+  உங்கள் உலாவி அமைப்புகளை மாற்றுங்கள், இணையம் உங்கள் மொழியில் பேசும்.
+  <br><br>இது ஒரு இன்ஃப்ராஸ்ட்ரக்சர் ஆகும், அது மொழி-சார்ந்த இணைய பதிப்புகளுடன் உங்களை இணைக்கிறது.
+  <br><br>ஓபன் செது ஐ பயன்படுத்த தொடங்குங்கள்:
+</p>
+
+<div class="link-box">
+  <span id="opensetu-link">https://pranam.opensetu.in</span>
+  <button id="copy-btn" title="இணைப்பை நகலெடுக்கவும்">
+    <i class="fa-solid fa-copy"></i>
+  </button>
+</div>
+
+<script>
+  document.getElementById("copy-btn").addEventListener("click", function() {
+    const text = document.getElementById("opensetu-link").innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      alert("இணைப்பு நகலெடுக்கப்பட்டது!");
+    });
+  });
+</script>
+
+<button class="btn-primary" onclick="scrollToVideo()">இது எப்படி வேலை செய்கிறது பாருங்கள் →</button>
+</div>
+
+
     <div class="hero-image">
-      <img src="img1.png" alt="விளக்கப்படம்" />
+      <img src="img1.png" alt="Descriptive text" />
     </div>
   </section>
 
-  <section class="info-section"> 
-    <div class="info-wrapper">
-      <div class="text-block">
-        <h2 class="section-title">ஓபன்சேட்டு என்ன செய்கிறது?</h2>
-        <p>OpenSetu என்பது ஒரு DNS ரிசால்வர் ஆகும், இது உங்கள் தாய்மொழியில் பொதுப் பொருட்கள் மற்றும் அரசு பயன்பாடுகளை அணுக உங்களை அனுமதிக்கிறது. உங்கள் டொமைனின் பெயரை உங்கள் சொந்த மொழியில் தட்டச்சு செய்தால், அது அதிகாரப்பூர்வ தளத்தின் மொழிப் பதிப்பிற்கு திருப்பிவிடும்.</p>
-        <p>எடுத்துக்காட்டாக, தேவநாகரியில் <span class="highlight">पीएमकिसान.सर.भा</span> என தட்டச்சு செய்வதன் மூலம் pmkisan.gov.in ஐப் பார்வையிடலாம் அல்லது நீங்கள் தமிழைப் பயன்படுத்தினால் <span class="highlight">பிஎம்கிசான்.ப</span> என தட்டச்சு செய்தால் போதும்.</p>
-        <p class="small">மறுப்பு: OpenSetu, தற்போது, URL வழியாக மொழி பதிப்புகளை ஆதரிக்கும் வலைத்தளங்களுக்கு மட்டுமே திருப்பி விடுகிறது. மொழி மாற்றத்தை நிர்வகிக்க ஒரு வலைத்தளம் JavaScript அல்லது குக்கீகளைப் பயன்படுத்தினால், பயனர்கள் தளத்தின் மொழித் தேர்வியைப் பயன்படுத்தி மொழியை கைமுறையாக மாற்ற வேண்டும்.</p>
-      </div>
-      <div class="image-block">
-        <img src="img2.png" alt="OpenSetu உதாரணம்" class="info-image">
-      </div>
-    </div>
-  </section>
+  <script>
+    // Copy button
+    document.getElementById("copy-btn").addEventListener("click", function () {
+      const linkText = document.getElementById("opensetu-link").textContent;
+      navigator.clipboard.writeText(linkText).then(() => {
+        alert("Link copied to clipboard!");
+      }).catch(err => {
+        console.error("Failed to copy: ", err);
+      });
+    });
 
-  <section class="info-section">
-    <div class="info-wrapper">
-      <div class="text-block">
-        <h2 class="section-title">மொழிபெயர்ப்பாளர் அல்ல,<br>ஓபன்சேட்டு புதிய இணையத்திற்கான<br>ஒரு பாலமாகும்.</h2>
-        <p>இங்கே ஆங்கில பவுன்சர்கள் இல்லை. இது பாரதத்தின் சொந்த இணையம், எங்கே:-</p>
-        <ul class="feature-list">
-          <li>உங்கள் மொழி விதிவிலக்கல்ல, இயல்புநிலை மொழியாகும்.</li>
-          <li>பழைய இணையம் முன்பு போலவே செயல்படுகிறது.</li>
-          <li>இப்போது உங்கள் சொந்த ஸ்கிரிப்டில் வலைத்தளங்களை அணுகவும்.</li>
-          <li>ஒவ்வொரு குடிமகனும் டிஜிட்டல் பொதுப் பொருட்களை அணுக முடியும்.</li>
-        </ul>
-      </div>
-      <div class="image-block">
-        <img src="img3.png" alt="புதிய இணையத்திற்கு பாலம்" class="info-image">
-      </div>
-    </div>
-  </section>
+    // Side menu functions
+    function openMenu() {
+      document.getElementById("sideMenu").style.width = "250px";
+    }
+    function closeMenu() {
+      document.getElementById("sideMenu").style.width = "0";
+    }
+  </script>
 
-  <section class="info-section">
-    <div class="info-wrapper">
-      <div class="text-block">
-        <h2 class="section-title">நீங்கள் தயாரானால் நாங்கள் தயார்!</h2>
-        <p>இன்று, OpenSetu-வில், ஆதார், DigiLocker, UPI, சுகாதார ஐடி, ரேஷன், PM கிசான், வேலைவாய்ப்பு சேவைகள் போன்ற அனைத்து முக்கிய பொது பயன்பாடுகளையும் நீங்கள் ஏற்கனவே அணுகலாம்!</p>
-        <p>நாங்கள் பொது உள்கட்டமைப்பில் தொடங்கி, அரசாங்கங்கள், தொடக்க நிறுவனங்கள் மற்றும் தனியார் தளங்களுடன் இணைந்து முழு டிஜிட்டல் உலகத்தையும் தாய்மொழி இந்தியாவிற்குக் கொண்டு வருவோம்.</p>
-      </div>
-      <div class="image-block">
-        <img src="img4.png" alt="தயாராகுங்கள்" class="info-image">
-      </div>
-    </div>
-  </section>
+<section class="info-section"> 
+  <div class="info-wrapper">
+    <div class="text-block">
+      <h2 class="section-title">ஓபன் செது என்ன செய்கிறது?</h2>
+      <p>ஓபன் செது ஒரு DNS தீர்வாளர் ஆகும், இது உங்களுக்கு தாய்மொழியில் பொது சேவைகள் மற்றும் அரசு பயன்பாடுகளை அணுக அனுமதிக்கிறது. உங்கள் டொமைன் பெயரை உங்கள் சொந்த மொழியில் டைப் செய்யுங்கள், அது அதிகாரப்பூர்வ தளத்தின் மொழி பதிப்புக்கு மீண்டும் மாற்றும்.</p>
+      <p>
+  <strong>உதாரணத்திற்கு,</strong> நீங்கள் ஹிந்தி பேசுவோர் என்றால், நீங்கள் pmkisan.gov.in தளத்தை கேட்டர் டைப் செய்வதன் மூலம் 
+  <span class="highlight">पीएमकिसान.गव.भ</span> 
+  டெவநாகரி எழுத்தில் அணுகலாம். <br>
+  ஆதரிக்கப்படும் அனைத்து டொமைன்களின் முழு பட்டியலை 
+  <a href="domain.html">டொமைன் பட்டியல்</a> இல் பார்க்கலாம்.
+</p>
 
-  <section class="last info-section">
-    <div class="container center-content">
-      <h2 class="section-title">எப்படி தொடங்குவது</h2>
-      <p>ஒரு மாற்றம். ஒரு புதிய இணையம்.</p>
-      <div class="video-wrapper">
-        <video src="your-video.mp4" controls></video>
-      </div>
+      <p class="small"><strong>மறுப்பு அறிவிப்பு:</strong> 
+        இப்போது, ஓபன் செது URL வழியாக மொழி பதிப்புகளை ஆதரிக்கும் தளங்களுக்கு மட்டுமே மாற்றுகிறது. ஒரு தளம் JavaScript அல்லது குக்கீகளை பயன்படுத்தி மொழி மாற்றத்தை நிர்வகித்தால், பயனர்கள் தளம் வழங்கும் மொழி தேர்வி மூலம் மொழியை கையேடாக மாற்ற வேண்டும்.</p>
+ </div>
+    <div class="image-block">
+      <img src="img2.png" alt="ஓபன் செது உதாரணம்" class="info-image">
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="cta-section">
-    <div class="cta-gradient-layer"></div>
-    <div class="cta-inner">
-      <h2>இது வெறும் ஆரம்பம் தான்.</h2>
-      <div class="cta-grid">
-        <div>
-          <p class="cta-desc">ஆதார், டிஜிலாக்கர், UPI, Google,<br>X, BTC</p>
-          <h3>பொது பயன்பாடுகள்</h3>
-        </div>
-        <div>
-          <p class="cta-desc">உங்கள் தாய்மொழியில் வேரூன்றிய சரிபார்க்கக்கூடிய டிஜிட்டல் அடையாளங்கள்.</p>
-          <h3>டிஜிட்டல் குடியுரிமை</h3>
-        </div>
-        <div>
-          <p class="cta-desc">உங்கள் தாய்மொழியில் டொமைன் பெயர்கள் மற்றும் தனிப்பயனாக்கப்பட்ட மின்னஞ்சல் ஐடிகள்.</p>
-          <h3>உள்ளூர் அடையாளம்</h3>
-        </div>
-        <div>
-          <p class="cta-desc">பாரத் கா இணையத்தில் உங்கள் சொந்த DOH ரிசால்வர் அல்லது சேவைகளை உருவாக்குங்கள்.</p>
-          <h3>அதன் மீது உருவாக்குங்கள்</h3>
-        </div>
-        <div>
-          <p class="cta-desc">பாரதத்திற்காக உருவாக்கப்பட்ட செயலிகள், தளங்கள் மற்றும் சேவைகள்.</p>
-          <h3>டிஜிட்டல் சுதேசி</h3>
-        </div>
-        <div>
-          <p class="cta-desc">.eth மற்றும் IPFS போன்ற உலகளாவிய Web3 உள்கட்டமைப்புடன் ஒருங்கிணைக்கவும்.</p>
-          <h3>Web3 ஒருங்கிணைப்புகள்</h3>
-        </div>
-      </div>
+<section class="info-section">
+  <div class="info-wrapper">
+    <div class="text-block">
+      <h2 class="section-title">மொழிபெயர்ப்பாளர் அல்ல,
+        <br>ஓபன் செது ஒரு பாலமாக உள்ளது
+        <br>புதிய இணையத்திற்கு.</h2>
+      <p>இங்கே ஆங்கில அடிக்கல் விதிகள் இல்லை. இது இந்தியாவின் சொந்த இணையம்:</p>
+      <ul class="feature-list">
+        <li>உங்கள் மொழி இயல்பானது, விதிவிலக்கு அல்ல.</li><br>
+        <li>பழைய இணையம் இதுவரை போலவே செயல்படுகிறது.</li><br>
+        <li>இப்போது உங்கள் சொந்த எழுத்தில் தளங்களை அணுகுங்கள்.</li><br>
+        <li>ஒவ்வொரு குடிமகனும் டிஜிட்டல் பொது சேவைகளுக்கு அணுகல் பெறுகிறார்.</li><br>
+      </ul>
     </div>
-  </section>
+    <div class="image-block">
+      <img src="img3.png" alt="புதிய இணையத்திற்கான பாலம்" class="info-image">
+    </div>
+  </div>
+</section>
 
-  <footer class="footer">
-    <div class="footer-grid">
+<section class="info-section">
+  <div class="info-wrapper">
+    <div class="text-block">
+      <p>இன்று, ஓபன் செது மூலம், ஆதார், டிஜிலாகர், யூபிஐ, ஹெல்த் ஐடி, ரேஷன், பி.எம் கிசான், வேலை வாய்ப்பு சேவைகள் போன்ற அனைத்து முக்கிய பொது பயன்பாடுகளையும் நீங்கள் அணுகலாம்.</p>
+      <p>நாம் பொது கட்டமைப்புகளுடன் தொடங்குகிறோம், அரசு, ஸ்டார்ட்அப்கள் மற்றும் தனியார் தளங்களுடன் இணைந்து, முழு டிஜிட்டல் உலகத்தை உள்ளூர் இந்தியாவிற்கு கொண்டு வருவோம்.</p>
+    </div>
+    <div class="image-block">
+      <img src="img4.png" alt="தயார் படம்" class="info-image">
+    </div>
+  </div>
+</section>
+
+<section id="how-to-get-started" class="last info-section">
+  <div class="container center-content">
+    <h2 class="section-title">எப்படி தொடங்குவது</h2>
+    <p>ஒரு மாற்றம். ஒரு புதிய இணையம்.</p>
+
+    <div class="video-wrapper">
+      <video id="get-started-video" src="your-video.mp4" controls></video>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="cta-section">
+  <!-- Gradient trapezium layer -->
+  <div class="cta-gradient-layer"></div>
+
+  <!-- Main content -->
+  <div class="cta-inner">
+    <h2>இது வெறும் தொடக்கம் மட்டுமே</h2>
+    <div class="cta-grid">
       <div>
-        <h3>ஓபன்சேட்டு</h3>
-        <ul>
-          <li><a href="about.html" class="hover:underline">எங்களைப் பற்றி</a></li>
-          <li><a href="privacy.html" class="hover:underline">தனியுரிமைக் கொள்கை</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>பக்க இணைப்புகள்</h3>
-        <ul>
-          <li><a href="FAQ.html" class="hover:underline">அடிக்கடி கேட்கப்படும் கேள்விகள்</a></li>
-          <li><a href="documentation.html" class="hover:underline">ஆவணம்</a></li>
-          <li><a href="beta.html" class="hover:underline">பீட்டா மென்பொருள் எச்சரிக்கை</a></li>
-        </ul>
+        <h3>பொது சேவைகள்</h3>
+        <p class="cta-desc">ஆதார், டிஜிலாகர், யூபிஐ, கூகுள்,
+          <br>X, BTC</p>
       </div>
       <div>
-        <h3>தொடர்பு கொள்ளவும்</h3>
-        <ul>
-          <li><a href="#">பேஸ்புக்</a></li>
-          <li><a href="#">சென்டர்</a></li>
-          <li><a href="#">எக்ஸ்</a></li>
-        </ul>
+        <h3>டிஜிட்டல் குடிமை</h3>
+        <p class="cta-desc">உங்கள் தாய்மொழியில் அடிப்படை கொண்ட
+          <br>உறுதிப்படுத்தக்கூடிய டிஜிட்டல் அடையாளங்கள்.</p>
+      </div>
+      <div>
+        <h3>உள்ளூராட்சி அடையாளம்</h3>
+        <p class="cta-desc">டொமைன் பெயர்கள் மற்றும் தனிப்பட்ட
+          <br>மின்னஞ்சல் ஐடிகள் உங்கள் தாய்மொழியில்.</p>
+      </div>
+      <div>
+        <h3>இதில் கட்டமைக்கவும்</h3>
+        <p class="cta-desc">உங்கள் சொந்த DOH தீர்வாளர் அல்லது
+          <br>சேவைகளை இந்தியா இணையத்தில் உருவாக்குங்கள்</p>
+      </div>
+      <div>
+        <h3>டிஜிட்டல் ஸ்வதேசி</h3>
+        <p class="cta-desc">இந்தியாவுக்காக உருவாக்கப்பட்ட ஆப், தளங்கள் மற்றும்
+          <br>சேவைகள்.</p>
+      </div>
+      <div>
+        <h3>Web3 ஒருங்கிணைப்பு</h3>
+        <p class="cta-desc">உலகளாவிய Web3 கட்டமைப்புகளுடன் இணைக்கவும்
+          <br>.eth மற்றும் IPFS போன்றவை.</p>
       </div>
     </div>
-    <div class="footer-copy">© 2025 OpenSetu. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</div>
-  </footer>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <h3>ஓபன் செது</h3>
+      <ul>
+        <li><a href="about.html" class="hover:underline">எங்களை பற்றி</a></li>
+        <li><a href="privacy.html" class="hover:underline">தனியுரிமை கொள்கை</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>பக்க இணைப்புகள்</h3>
+      <ul>
+        <li><a href="domain.html" class="hover:underline">டொமைன் பட்டியல்</a></li>
+        <li><a href="documentation.html" class="hover:underline">ஆவணங்கள்</a></li>
+        <li><a href="beta.html" class="hover:underline">பீட்டா மென்பொருள் அறிவிப்பு</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>தொடர்பு</h3>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">X (Twitter)</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-copy">© 2025 ஆகாமின். எல்லா உரிமைகளும் பாதுகாக்கப்பட்டவை.</div>
+</footer>
+
+
+  
 
 </body>
+
+<script>
+function scrollToVideo() {
+  const section = document.getElementById('how-to-get-started');
+  section.scrollIntoView({ behavior: 'smooth' });
+
+  const video = document.getElementById('get-started-video');
+  video.play();
+}
+</script>
+
 </html>
